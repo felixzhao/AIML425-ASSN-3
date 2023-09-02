@@ -161,3 +161,19 @@ cython_debug/
 
 resource/
 data/
+
+# report
+
+.DS_Store
+
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.fdb_latexmk
+report/*.fls
+report/*.gz
+report/*.pdf
+
+*.pdf
+*.png
+*.out
