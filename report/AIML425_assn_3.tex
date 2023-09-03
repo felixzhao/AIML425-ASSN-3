@@ -55,7 +55,7 @@ the sensors does not work. The density of the sensor score s is
 \subsection{Graph Convolutional Network (GCN)}
 \label{ssec:gcn}
 
-Graph Convolutional Network (GCN) is designed to handle irregular data structures represented by graphs. 
+Graph Convolutional Network (GCN) \cite{kipf2016semi} is designed to handle irregular data structures represented by graphs. 
 \begin{align}
   h_{v}^{t}=\sigma \left ( 
     W^t
@@ -77,12 +77,10 @@ For this problem, a GCN could be a good choice. because:
     \item Scalability: GCNs are scalable to large graphs, so if the grid size increases, the model should still perform well.
   \end{itemize}
 
-body of theory \cite{gretton2012kernel}
-
 \subsection{Binary Cross-Entropy (BCE) Loss}
 \label{ssec:bce}
 
-Binary Cross-Entropy (BCE) Loss, also known as log loss, is a commonly used loss function for binary classification problems. It quantifies how well the predicted probabilities align with the actual labels.
+Binary Cross-Entropy (BCE)\cite{domingos2012few}  Loss, also known as log loss, is a commonly used loss function for binary classification problems. It quantifies how well the predicted probabilities align with the actual labels.
 
 \begin{align}
   \text{BCE} = -\frac{1}{N} \sum_{i=1}^{N} [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)]
@@ -104,6 +102,8 @@ If the tiger's track covers only a small portion of the grid, most of the sensor
 \section{RESULTS}
 \label{sec:results}
 
+\subsection{Data Preparation}
+\label{ssec:data}
 To resolve "Tiger random walk" problem. 
 The first step is to generate data following the requirements.
 
@@ -138,6 +138,9 @@ Figure $\ref{fig:data}$ (b) shows scores of nodes, , where larger values corresp
   \label{fig:data}
   %
   \end{figure}
+
+  \subsection{Model Training and evaluation}
+  \label{ssec:model}
 
   In the model training stage, we generate the dataset by following the approach described above. We then split this dataset into training and testing sets.
 
