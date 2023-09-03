@@ -55,7 +55,17 @@ the sensors does not work. The density of the sensor score s is
 \subsection{Graph Convolutional Network (GCN)}
 \label{ssec:gcn}
 
-For this problem, a Graph Convolutional Network (GCN) could be a good choice. because:
+Graph Convolutional Network (GCN) is designed to handle irregular data structures represented by graphs. 
+\begin{align}
+  h_{v}^{t}=\sigma \left ( 
+    W^t
+    \sum_{u\epsilon N_v\bigcup v}
+    \frac{1}{\left | N_v \right |} 
+    h_{v}^{t-1}
+    \right )
+\end{align}
+
+For this problem, a GCN could be a good choice. because:
 
   \begin{itemize}
     \item Local Neighborhood Information: GCNs are good at aggregating information from a node's local neighborhood, which is crucial for this problem. The tiger's presence at a particular sensor would likely influence the readings of its neighboring sensors.
@@ -68,6 +78,28 @@ For this problem, a Graph Convolutional Network (GCN) could be a good choice. be
   \end{itemize}
 
 body of theory \cite{gretton2012kernel}
+
+\subsection{Binary Cross-Entropy (BCE) Loss}
+\label{ssec:bce}
+
+Binary Cross-Entropy (BCE) Loss, also known as log loss, is a commonly used loss function for binary classification problems. It quantifies how well the predicted probabilities align with the actual labels.
+
+\begin{align}
+  \text{BCE} = -\frac{1}{N} \sum_{i=1}^{N} [y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)]
+\end{align}
+
+BCE loss is ideal for this work because it's tailored for binary classification and outputs probabilities, making it compatible with the GNN model. It performs well with imbalanced classes, is differentiable for gradient-based optimization, and is both simple and effective.
+
+\subsection{F1-Score}
+\label{ssec:f1}
+
+The F1-score is a metric that combines both precision and recall into a single value, providing a balanced measure of a model's performance on a binary classification task.
+
+\begin{align}
+  \text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+\end{align}
+
+If the tiger's track covers only a small portion of the grid, most of the sensors will have a label of 0 (tiger didn't pass by). In such cases, the class distribution is imbalanced, and metrics like accuracy can be misleading. F1-score is a better metric for imbalanced datasets.
 
 \section{RESULTS}
 \label{sec:results}
