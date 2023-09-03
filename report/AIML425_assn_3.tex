@@ -29,9 +29,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-body of intro
-
-\{place hold for brief Graph neral netowrk \}
+Graph Neural Networks (GNNs) are specialized machine learning models designed to handle graph-structured data. Unlike traditional neural networks, GNNs operate on nodes and edges to capture complex relationships. They work through a process of message passing, aggregation, and feature updating to make predictions or decisions. GNNs are widely used in applications like social network analysis, molecular chemistry, and recommendation systems.
 
 In this work, I will present my understanding of GNN by resolve the "Tiger random walk" problem:
 
@@ -54,8 +52,8 @@ the sensors does not work. The density of the sensor score s is
 
 \subsection{Graph Convolutional Network (GCN)}
 \label{ssec:gcn}
-
-Graph Convolutional Network (GCN) \cite{kipf2016semi} is designed to handle irregular data structures represented by graphs. 
+Graph Convolutional Network (GCN) \cite{kipf2016semi} originates from simplifying “proper” graph convolution based on graph Fourier transform
+ 
 \begin{align}
   h_{v}^{t}=\sigma \left ( 
     W^t
@@ -97,6 +95,14 @@ The F1-score is a metric that combines both precision and recall into a single v
   \text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
 \end{align}
 
+\begin{align}
+  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+\end{align}
+
+\begin{align}
+  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+\end{align}
+
 If the tiger's track covers only a small portion of the grid, most of the sensors will have a label of 0 (tiger didn't pass by). In such cases, the class distribution is imbalanced, and metrics like accuracy can be misleading. F1-score is a better metric for imbalanced datasets.
 
 \section{RESULTS}
@@ -120,16 +126,16 @@ The Figure $\ref{fig:data}$ (a) shows a random path the node on track shows red 
 Figure $\ref{fig:data}$ (b) shows scores of nodes, , where larger values correspond to darker colors.
 
 \begin{figure}[htb]
-  \begin{minipage}[b]{.48\linewidth}
+  \begin{minipage}[b]{1.0\linewidth}
     \centering
-    \centerline{\includegraphics[width=2.5cm]{images/path}}
+    \centerline{\includegraphics[width=4.0cm]{images/path}}
   %  \vspace{1.5cm}
     \centerline{(a) path of in grid}\medskip
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.48\linewidth}
+  \begin{minipage}[b]{1.0\linewidth}
     \centering
-    \centerline{\includegraphics[width=2.5cm]{images/scores}}
+    \centerline{\includegraphics[width=4.0cm]{images/scores}}
   %  \vspace{1.5cm}
     \centerline{(b) node scores in grid }\medskip
   \end{minipage}
@@ -181,7 +187,13 @@ body of conclusion
 \section{STATEMENT OF ALL TOOLS USED}
 \label{sec:statementofalltoolsused}
 
-body of tools
+In this work, we used Pytorch geometric package to generate data, create, train models. 
+The Plotly package helped us visualize in 3D. 
+
+Source codes are published in github: 
+We run notebook in Colab $\href{https://github.com/felixzhao/AIML425-ASSN-2}{URL}$
+
+
 
 
 
