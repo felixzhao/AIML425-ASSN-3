@@ -63,17 +63,7 @@ Graph Convolutional Network (GCN) \cite{kipf2016semi} originates from simplifyin
     \right )
 \end{align}
 
-For this problem, a GCN could be a good choice. because:
-
-  \begin{itemize}
-    \item Local Neighborhood Information: GCNs are good at aggregating information from a node's local neighborhood, which is crucial for this problem. The tiger's presence at a particular sensor would likely influence the readings of its neighboring sensors.
-  
-    \item Simplicity and Efficiency: GCNs are relatively simple and computationally efficient compared to some other types of GNNs, making them a good starting point.
-  
-    \item Node Features: The GCN can easily incorporate node features, which in this case would be the sensor readings.
-  
-    \item Scalability: GCNs are scalable to large graphs, so if the grid size increases, the model should still perform well.
-  \end{itemize}
+A GCN is well-suited for this problem due to its ability to aggregate local neighborhood information, its simplicity and computational efficiency, its capability to incorporate node features, and its scalability to large graphs.
 
 \subsection{Binary Cross-Entropy (BCE) Loss}
 \label{ssec:bce}
